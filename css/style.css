@@ -1,0 +1,731 @@
+/* =========================================================
+   1. Переменные 
+   ========================================================= */
+:root {
+  --yellow: #E6C744;
+  --black: #000000;
+  --white: #FFFFFF;
+  --grey: #C2C8DA;
+
+  --color-text: var(--black);
+  --color-background: var(--white);
+  --color-accent: var(--yellow);
+  --color-muted: #6b6b6b;
+
+  --container-width: 1120px;
+  --page-padding: 24px;
+
+  --radius-large: 28px;
+  --radius-medium: 20px;
+  --radius-small: 10px;
+
+  --font-main: "Poppins", Arial, sans-serif;
+
+  font-family: var(--font-main);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+/* =========================================================
+   2. Сброс
+   ========================================================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  background: #fffdf6;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+button { font: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* Утилита для скрытого текста */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* =========================================================
+   3. Контейнер
+   ========================================================= */
+.header,
+main,
+.footer {
+  width: min(var(--container-width), calc(100% - 2 * var(--page-padding)));
+  margin-inline: auto;
+}
+
+/* =========================================================
+   4. Кнопки
+   ========================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: var(--radius-small);
+  border: 0;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn--dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn--dark:hover { background: #222; }
+
+.btn:hover { opacity: 0.9; }
+
+/* Жёлтый маркер под заголовком */
+.marker {
+  background: var(--yellow);
+  padding: 0 10px;
+  display: inline-block;
+  line-height: 1.05;
+}
+.marker--white {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* =========================================================
+   5. Header
+   ========================================================= */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-block: 22px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 900;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.nav a:hover { color: var(--yellow); }
+
+.header__signup { padding: 10px 22px; }
+
+.menu-button {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-small);
+  background: var(--black);
+  color: var(--white);
+  border: 0;
+  font-size: 1.25rem;
+  margin-left: auto;
+}
+
+.nav-mobile {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px;
+  background: var(--white);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.header.is-open .nav-mobile { display: flex; }
+
+/* =========================================================
+   6. Hero
+   ========================================================= */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding-block: 40px 64px;
+  background: #f8f9fa;
+  border-radius: var(--radius-large);
+  padding-inline: 48px;
+}
+
+.hero__title {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.hero__text {
+  margin: 0 0 28px;
+  color: var(--color-muted);
+  font-size: 1rem;
+}
+
+.hero__image {
+  position: relative;
+}
+
+.hero__image img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-medium);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* =========================================================
+   7. Бренды
+   ========================================================= */
+.brands {
+  margin-top: -30px;
+  background: var(--yellow);
+  padding: 22px 32px;
+  border-radius: 0;
+}
+
+.brands__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brands__list img {
+  height: 26px;
+  width: auto;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   8. Секции
+   ========================================================= */
+.section { padding-block: 80px; }
+
+.section__title {
+  margin: 0 0 32px;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   9. Young's Favourite — tabs
+   ========================================================= */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.tab-button {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid #e6e6e6;
+  background: transparent;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-button:hover { background: rgba(230, 199, 68, 0.25); }
+
+.tab-button.is-active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.young-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.young-card {
+  background: var(--white);
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+}
+
+.young-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.young-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 20px 8px;
+}
+
+.young-card__title {
+  margin: 0 0 6px;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.young-card__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.young-card__link:hover { color: var(--black); }
+
+/* =========================================================
+   10. Slider (Payday Sale)
+   ========================================================= */
+.payday { padding-block: 40px 80px; }
+
+.slider { position: relative; }
+
+.slider__viewport {
+  overflow: hidden;
+  border-radius: var(--radius-large);
+}
+
+.slider__track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 48px;
+  background: var(--yellow);
+  box-sizing: border-box;
+}
+
+.slide__image img {
+  width: 100%;
+  border-radius: var(--radius-medium);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.slide__title {
+  margin: 0 0 20px;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.slide__text {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  max-width: 420px;
+}
+
+.slide__date {
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.slide__small {
+  margin: 0 0 24px;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.slider__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--white);
+  color: var(--black);
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+.slider__arrow--prev { left: 16px; }
+.slider__arrow--next { right: 16px; }
+
+.slider__arrow:hover { background: var(--black); color: var(--white); }
+
+.slider__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.slider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  background: #d9d9d9;
+  transition: background 0.2s;
+}
+
+.slider__dot.is-active { background: var(--black); }
+
+/* =========================================================
+   11. Download app
+   ========================================================= */
+.download {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: var(--radius-large);
+  padding-inline: 48px;
+}
+
+.download__title {
+  margin: 0 0 20px;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.download__text {
+  margin: 0 0 28px;
+  max-width: 380px;
+  color: var(--color-muted);
+}
+
+.download__buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: var(--radius-small);
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.875rem;
+}
+
+.store-btn:hover { background: #222; }
+
+.download__phone img {
+  max-width: 320px;
+  margin-inline: auto;
+  border-radius: var(--radius-medium);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================================
+   12. Accordion FAQ
+   ========================================================= */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.accordion-item {
+  background: var(--white);
+  border-radius: var(--radius-medium);
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.accordion-title {
+  width: 100%;
+  padding: 22px 24px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1rem;
+  background: transparent;
+  border: 0;
+}
+
+.accordion-item.is-open .accordion-title {
+  color: #b98a00;
+}
+
+.accordion-content {
+  padding: 0 24px 22px;
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   13. Footer
+   ========================================================= */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 32px;
+  border-top: 1px solid #eee;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.footer p { margin: 0; }
+.status--ready { color: var(--black); font-weight: 700; }
+
+/* =========================================================
+   14. Фокус
+   ========================================================= */
+.btn:focus-visible,
+.menu-button:focus-visible,
+.tab-button:focus-visible,
+.accordion-title:focus-visible,
+.slider__arrow:focus-visible,
+.slider__dot:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   15. Адаптив
+   ========================================================= */
+@media (max-width: 960px) {
+  .hero,
+  .download {
+    grid-template-columns: 1fr;
+    padding-inline: 32px;
+  }
+  .hero__image { order: -1; max-width: 520px; }
+  .download__phone img { max-width: 260px; }
+  .slide { grid-template-columns: 1fr; padding: 32px; }
+}
+
+@media (max-width: 760px) {
+  .nav,
+  .header__signup { display: none; }
+  .menu-button { display: inline-flex; align-items: center; justify-content: center; }
+
+  .hero { padding-inline: 24px; }
+  .section { padding-block: 56px; }
+
+  .young-grid { grid-template-columns: 1fr; }
+
+  .brands__list { justify-content: center; gap: 28px; }
+
+  .slide__title { font-size: 1.75rem; }
+
+  .footer { flex-direction: column; }
+}
+
+@media (max-width: 360px) {
+  .slide { padding: 20px; }
+  .slide__title { font-size: 1.5rem; }
+}
+/* =========================================================
+   18. Cookies
+   ========================================================= */
+.cookies {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-white);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.cookies__text { margin: 0; font-size: 0.9375rem; }
+.cookies__button { padding: 10px 20px; }
+
+@media (max-width: 600px) {
+  .cookies { flex-direction: column; align-items: stretch; }
+}
+
+/* =========================================================
+   19. Бургер-меню
+   ========================================================= */
+.menu-button { display: none; }
+
+@media (max-width: 760px) {
+  .nav { display: none; }
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    border-radius: var(--radius-small);
+    background: var(--color-text);
+    color: var(--color-white);
+    font-size: 1.25rem;
+  }
+  .nav-mobile {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: var(--color-white);
+    border-radius: var(--radius-medium);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
+/* =========================================================
+   20. Слайдер: счётчик
+   ========================================================= */
+.slider__counter {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+/* =========================================================
+   21. Модальное окно
+   ========================================================= */
+.modal {
+  border: 0;
+  border-radius: var(--radius-large);
+  padding: 0;
+  max-width: 420px;
+  width: calc(100% - 40px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 32px;
+}
+
+.modal__title { margin: 0; font-size: 1.5rem; }
+.modal__text { margin: 0; color: var(--color-muted); }
+
+.modal__label { font-size: 0.875rem; font-weight: 500; }
+
+.modal__input {
+  padding: 14px 16px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-small);
+  font: inherit;
+}
+
+.modal__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(230, 199, 68, 0.4);
+}
+
+.modal__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.modal__actions .button:not(.button--dark) {
+  background: #eee;
+  color: var(--color-text);
+}
+
+/* =========================================================
+   22. Форма: сообщения
+   ========================================================= */
+.form__error {
+  margin: 0;
+  min-height: 18px;
+  font-size: 0.8125rem;
+  color: #b00020;
+}
+
+.form__field--checkbox label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9375rem;
+}
+
+.form__success {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: var(--radius-small);
+  background: #e7f6e9;
+  color: #1a6b2a;
+  font-weight: 500;
+}
+
+/* =========================================================
+   23. Фокус — единый стиль
+   ========================================================= */
+.cookies__button:focus-visible,
+.menu-button:focus-visible,
+[data-open-modal]:focus-visible,
+[data-modal-close]:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}

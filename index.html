@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FASHION — Explore Unique Clothes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- ============ COOKIES NOTICE ============ -->
+  <div class="cookies" data-js="cookies" role="region" aria-label="Уведомление о cookies">
+    <p class="cookies__text">
+      Мы используем файлы cookie, чтобы взять на вас кредит.
+    </p>
+    <button class="cookies__button button button--dark" type="button" data-cookies-accept>
+      Принять
+    </button>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" data-js="menu">
+    <a class="logo" href="#top">
+      <img src="images/logo.png" alt="Логотип магазина FASHION" width="256" height="64">
+    </a>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#catalogue">CATALOGUE</a>
+      <a href="#fashion">FASHION</a>
+      <a href="#favourite">FAVOURITE</a>
+      <a href="#lifestyle-slider">LIFESTYLE</a>
+    </nav>
+
+    <button class="signup-button" type="button" data-open-modal>
+      SIGN UP
+    </button>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      data-menu-toggle>
+      
+    </button>
+
+    <nav id="mobile-nav" class="nav-mobile" aria-label="Мобильная навигация" hidden>
+      <a href="#catalogue">CATALOGUE</a>
+      <a href="#fashion">FASHION</a>
+      <a href="#favourite">FAVOURITE</a>
+      <a href="#lifestyle-slider">LIFESTYLE</a>
+    </nav>
+  </header>
+
+  <!-- ============ MAIN ============ -->
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__inner">
+        <div class="hero__text">
+          <h1 id="hero-title" class="hero__title">
+            <span class="hero__line hero__line--white">LET’S</span>
+            <span class="hero__line">EXPLORE</span>
+            <span class="hero__line hero__line--accent">UNIQUE</span>
+            <span class="hero__line">CLOTHES.</span>
+          </h1>
+          <p class="hero__desc">Live for influential and innovative fashion!</p>
+          <a class="button button--dark" href="#catalogue">SHOP NOW</a>
+        </div>
+        <div class="hero__image">
+          <img src="images/hero.png" alt="Девушка в розовом пуховике и полосатом платье" width="720" height="640">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRANDS ============ -->
+    <section class="brands" aria-label="Бренды-партнёры">
+      <ul class="brands__list">
+        <li><img src="images/brands/hm.png" alt="H&amp;M" loading="lazy"></li>
+        <li><img src="images/brands/Obey.png" alt="Obey" loading="lazy"></li>
+        <li><img src="images/brands/shopify.png" alt="Shopify" loading="lazy"></li>
+        <li><img src="images/brands/lacoste.png" alt="Lacoste" loading="lazy"></li>
+        <li><img src="images/brands/levis.png" alt="Levi's" loading="lazy"></li>
+        <li><img src="images/brands/amazon.png" alt="Amazon" loading="lazy"></li>
+      </ul>
+    </section>
+
+    <!-- ============ SLIDER (Payday Sale) ============ -->
+    <section class="section payday" id="lifestyle-slider" data-js="slider" aria-labelledby="payday-title">
+      <h2 id="payday-title" class="visually-hidden">Payday Sale</h2>
+
+      <div class="slider" data-slider>
+        <button class="slider__arrow slider__arrow--prev" type="button"
+                aria-label="Предыдущий слайд" data-slider-prev>←</button>
+
+        <div class="slider__viewport">
+          <ul class="slider__track" data-slider-track>
+            <li class="slide">
+              <div class="slide__image">
+                <img src="images/slide-01.png" alt="Девушка в жёлтом топе и джинсовых шортах" width="700" height="700">
+              </div>
+              <div class="slide__content">
+                <h3 class="slide__title">
+                  <span class="marker marker--white">PAYDAY</span><br>
+                  SALE NOW
+                </h3>
+                <p class="slide__text">Spend minimal $100 get 30% off voucher code for your next purchase</p>
+                <p class="slide__date">1 June – 10 June 2021</p>
+                <p class="slide__small">*Terms &amp; Conditions apply</p>
+                <a class="btn btn--dark" href="#catalogue">SHOP NOW</a>
+              </div>
+            </li>
+            <li class="slide">
+              <div class="slide__image">
+                <img src="images/slide-02.png" alt="Новая коллекция" width="700" height="700">
+              </div>
+              <div class="slide__content">
+                <h3 class="slide__title">
+                  <span class="marker marker--white">NEW</span><br>
+                  COLLECTION
+                </h3>
+                <p class="slide__text">Свежие образы и любимые бренды уже в каталоге.</p>
+                <p class="slide__date">Каждый день — новая подборка</p>
+                <p class="slide__small">*Скидки не суммируются</p>
+                <a class="btn btn--dark" href="#catalogue">SHOP NOW</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <button class="slider__arrow slider__arrow--next" type="button"
+                aria-label="Следующий слайд" data-slider-next>→</button>
+
+        <div class="slider__dots" role="tablist" aria-label="Слайды" data-slider-dots>
+          <button class="slider__dot is-active" type="button" role="tab"
+                  aria-selected="true" aria-label="Слайд 1"></button>
+          <button class="slider__dot" type="button" role="tab"
+                  aria-selected="false" aria-label="Слайд 2"></button>
+        </div>
+
+        <p class="slider__counter" aria-live="polite">
+          <span data-slider-counter>1</span> / <span data-slider-total>2</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ TABS ============ -->
+    <section class="section young" id="catalogue" data-js="tabs" aria-labelledby="young-title">
+      <h2 id="young-title" class="section__title">Young’s Favourite</h2>
+
+      <div class="tabs" role="tablist" aria-label="Категории подборки">
+        <button class="tab-button is-active" type="button" role="tab"
+                aria-selected="true" aria-controls="tab-trending" id="btn-trending"
+                data-tab="tab-trending">
+          Trending
+        </button>
+        <button class="tab-button" type="button" role="tab"
+                aria-selected="false" aria-controls="tab-under40" id="btn-under40"
+                data-tab="tab-under40">
+          Under $40
+        </button>
+      </div>
+
+      <div class="tab-panel" id="tab-trending" role="tabpanel" aria-labelledby="btn-trending">
+        <div class="young-grid">
+          <article class="young-card">
+            <img src="images/young-01.png" alt="Две девушки в солнцезащитных очках" loading="lazy" width="560" height="480">
+            <div class="young-card__footer">
+              <div>
+                <h3 class="young-card__title">Trending on Instagram</h3>
+                <p class="young-card__text">Explore Now</p>
+              </div>
+              <span class="young-card__arrow" aria-hidden="true">→</span>
+            </div>
+          </article>
+          <article class="young-card">
+            <img src="images/young-02.png" alt="Девушка в белом топе" loading="lazy" width="560" height="480">
+            <div class="young-card__footer">
+              <div>
+                <h3 class="young-card__title">All Under $40</h3>
+                <p class="young-card__text">Explore Now</p>
+              </div>
+              <span class="young-card__arrow" aria-hidden="true">→</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-under40" role="tabpanel" aria-labelledby="btn-under40" hidden>
+        <div class="young-grid">
+          <article class="young-card">
+            <img src="images/young-02.png" alt="Девушка в белом топе" loading="lazy" width="560" height="480">
+            <div class="young-card__footer">
+              <div>
+                <h3 class="young-card__title">All Under $40</h3>
+                <p class="young-card__text">Explore Now</p>
+              </div>
+              <span class="young-card__arrow" aria-hidden="true">→</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD APP ============ -->
+    <section class="section download" id="fashion" aria-labelledby="download-title">
+      <div class="download__inner">
+        <div class="download__text">
+          <h2 id="download-title" class="download__title">
+            DOWNLOAD APP &amp; GET THE VOUCHER!
+          </h2>
+          <p class="download__desc">
+            Get 30% off for first transaction using Rondovision mobile app.
+          </p>
+          <div class="download__stores">
+            <a href="#" class="store-badge" aria-label="Скачать в App Store">
+              <img src="images/appstore.png" alt="App Store"  loading="lazy">
+            </a>
+            <a href="#" class="store-badge" aria-label="Скачать в Google Play">
+              <img src="images/googleplay.png" alt="Google Play" loading="lazy">
+            </a>
+          </div>
+        </div>
+        <div class="download__image">
+          <img src="images/app-phones.png" alt="Скриншоты мобильного приложения" loading="lazy" width="560" height="640">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ (accordion) ============ -->
+    <section class="section faq" id="favourite" data-js="accordion" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section__title">FAQ</h2>
+      <div class="accordion" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-title" type="button"
+                  aria-expanded="false" data-accordion-trigger>
+            Как оформить заказ?
+          </button>
+          <div class="accordion-content" hidden data-accordion-content>
+            <p>Выберите товар, добавьте в корзину и оплатите на сайте или в приложении.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-title" type="button"
+                  aria-expanded="false" data-accordion-trigger>
+            Сколько идёт доставка?
+          </button>
+          <div class="accordion-content" hidden data-accordion-content>
+            <p>Стандартная доставка — 2–5 рабочих дней по России.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-title" type="button"
+                  aria-expanded="false" data-accordion-trigger>
+            Можно ли вернуть товар?
+          </button>
+          <div class="accordion-content" hidden data-accordion-content>
+            <p>Да, в течение 14 дней с момента получения при сохранении бирок.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SUBSCRIBE (form) ============ -->
+    <section class="section subscribe" id="subscribe" aria-labelledby="subscribe-title" data-js="form">
+      <h2 id="subscribe-title" class="section__title">Subscribe to our newsletter</h2>
+
+      <form class="form" action="#" method="post" novalidate data-form>
+        <div class="form__field">
+          <label for="sub-name">Имя</label>
+          <input type="text" id="sub-name" name="name" autocomplete="name" required data-field="name">
+          <p class="form__error" data-error="name"></p>
+        </div>
+
+        <div class="form__field">
+          <label for="sub-email">E-mail</label>
+          <input type="email" id="sub-email" name="email" autocomplete="email" required data-field="email">
+          <p class="form__error" data-error="email"></p>
+        </div>
+
+        <div class="form__field form__field--checkbox">
+          <label>
+            <input type="checkbox" name="consent" required data-field="consent">
+            Я согласен на обработку персональных данных
+          </label>
+          <p class="form__error" data-error="consent"></p>
+        </div>
+
+        <button class="button button--dark" type="submit">SIGN UP</button>
+
+        <p class="form__success" role="status" aria-live="polite" data-form-success hidden>
+          Спасибо! Вы успешно подписаны.
+        </p>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ============ MODAL ============ -->
+  <dialog class="modal" data-modal aria-labelledby="modal-title">
+    <form method="dialog" class="modal__inner">
+      <h2 id="modal-title" class="modal__title">Присоединяйтесь к FASHION</h2>
+      <p class="modal__text">
+        Оставьте e-mail, и мы пришлём промокод на первую покупку.
+      </p>
+      <label class="modal__label" for="modal-email">E-mail</label>
+      <input class="modal__input" type="email" id="modal-email" placeholder="you@example.com">
+      <div class="modal__actions">
+        <button class="button button--dark" value="submit" type="submit">Получить</button>
+        <button class="button" value="cancel" type="submit" data-modal-close>Закрыть</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>© 2026 FASHION · www.nickelfox.com</p>
+    <p>Диагностика: <strong data-js-status>проверяем подключение…</strong></p>
+  </footer>
+
+</body>
+</html>
